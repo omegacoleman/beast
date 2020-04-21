@@ -30,19 +30,19 @@ namespace socks {
 
 namespace detail {
 
-template<typename type, typename source>
-type read(source& p)
+template<typename Type, typename Source>
+Type read(Source& p)
 {
-    type ret = 0;
-    for (std::size_t i = 0; i < sizeof(type); i++)
+    Type ret = 0;
+    for (std::size_t i = 0; i < sizeof(Type); i++)
         ret = (ret << 8) | (static_cast<unsigned char>(*p++));
     return ret;
 }
 
-template<typename type, typename target>
-void write(type v, target& p)
+template<typename Type, typename Target>
+void write(Type v, Target& p)
 {
-    for (auto i = (int)sizeof(type) - 1; i >= 0; i--, p++)
+    for (auto i = (int)sizeof(Type) - 1; i >= 0; i--, p++)
         *p = static_cast<unsigned char>((v >> (i * 8)) & 0xff);
 }
 
