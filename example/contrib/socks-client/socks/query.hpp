@@ -91,24 +91,12 @@ public:
             return !(*this == other);
         }
 
-        string_view
-        key() const noexcept
-        {
-            return value_.first;
-        }
-
-        string_view
-        value() const noexcept
-        {
-            return value_.second;
-        }
-
     private:
-        BOOST_BEAST_DECL
+        inline
         void
         parse() noexcept;
 
-        BOOST_BEAST_DECL
+        inline
         void
         increment();
 
@@ -116,14 +104,14 @@ public:
         value_type value_;
     };
 
-    BOOST_BEAST_DECL
+    inline
     const_iterator
     begin() const
     {
         return const_iterator{s_};
     }
 
-    BOOST_BEAST_DECL
+    inline
     const_iterator
     end() const
     {

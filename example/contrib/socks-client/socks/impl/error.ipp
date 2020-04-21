@@ -25,7 +25,7 @@ public:
         return "SOCKS";
     }
 
-    BOOST_BEAST_DECL
+    inline
     std::string
     message(int ev) const override
     {
@@ -74,7 +74,7 @@ public:
         }
     }
 
-    BOOST_BEAST_DECL
+    inline
     error_condition
     default_error_condition(int ev) const noexcept override
     {

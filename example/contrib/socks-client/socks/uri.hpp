@@ -33,13 +33,13 @@ public:
     uri() = default;
     ~uri() = default;
 
-    BOOST_BEAST_DECL
+    inline
     uri(const char* s);
 
-    BOOST_BEAST_DECL
+    inline
     uri(const std::string& s);
 
-    BOOST_BEAST_DECL
+    inline
     uri(string_view s);
 
     string_view
@@ -98,32 +98,32 @@ public:
         return fragment_;
     }
 
-    BOOST_BEAST_DECL
+    inline
     bool
     parse(string_view url) noexcept;
 
-    BOOST_BEAST_DECL
+    inline
     static
     std::string
     encodeURI(string_view str) noexcept;
 
-    BOOST_BEAST_DECL
+    inline
     static
     std::string
     decodeURI(string_view str);
 
-    BOOST_BEAST_DECL
+    inline
     static
     std::string
     encodeURIComponent(string_view str) noexcept;
 
-    BOOST_BEAST_DECL
+    inline
     static
     std::string
     decodeURIComponent(string_view str);
 
 private:
-    BOOST_BEAST_DECL
+    inline
     string_view
     known_port() noexcept;
 };
