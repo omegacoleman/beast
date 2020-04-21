@@ -48,33 +48,33 @@ parse() noexcept
         case qs_key:
             if (c == '=')
             {
-                value_.first = string_view(start, b - start - 1); // skip '='
-                value_.second = string_view(b, 0);
+                value_.name = string_view(start, b - start - 1); // skip '='
+                value_.value = string_view(b, 0);
                 start = b;
                 state = qs_value;
                 continue;
             }
             if (c == '&')
             {
-                value_.first = string_view(start, b - start - 1); // skip '&' symbol
-                value_.second = string_view(b, 0);
+                value_.name = string_view(start, b - start - 1); // skip '&' symbol
+                value_.value = string_view(b, 0);
                 return;
             }
             if (eol)
             {
-                value_.first = string_view(start, b - start);
+                value_.name = string_view(start, b - start);
                 return;
             }
             continue;
         case qs_value:
             if (c == '&')
             {
-                value_.second = string_view(start, b - start - 1); // skip '&' symbol
+                value_.value = string_view(start, b - start - 1); // skip '&' symbol
                 return;
             }
             if (eol)
             {
-                value_.second = string_view(start, b - start);
+                value_.value = string_view(start, b - start);
                 return;
             }
             continue;
@@ -90,8 +90,8 @@ query::
 const_iterator::
 increment()
 {
-    auto start_ptr = value_.second.data();
-    auto offset = value_.second.size();
+    auto start_ptr = value_.value.data();
+    auto offset = value_.value.size();
 
     value_ = {};
 
