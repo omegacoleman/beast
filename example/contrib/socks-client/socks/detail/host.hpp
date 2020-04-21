@@ -17,11 +17,11 @@ namespace detail {
 
 enum host_type
 {
-	host_unkwon,
-	host_ipv4,
-	host_ipv6,
-	host_domain,
-	host_invalid,
+    host_unkwon,
+    host_ipv4,
+    host_ipv6,
+    host_domain,
+    host_invalid,
 };
 
 inline
